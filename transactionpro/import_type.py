@@ -14,24 +14,31 @@ class ImportType(object):
     @abstractproperty
     def fields(self):
         # type: () -> Tuple
-        """Return tuple of valid kwarg parameters."""
+        """Return tuple of valid kwarg parameters for add_row."""
         pass
 
     @abstractproperty
     def required_fields(self):
         # type: () -> Tuple
+        """Return tuple of fields that must be in add_row;"""
         pass
 
     def add_row(self, **kwargs):
+        """Add a row to the final csv. Must exist in self.field and must
+        contain all self.required_fields."""
         for field in self.required_fields:
             if field not in kwargs:
                 raise KeyError('Required field {} was not given'.format(field))
         for k in kwargs:
             if k not in self.fields:
-                raise KeyError('Keyword argument {} does not exist in self.fields'.format(k))
+                raise KeyError(
+                    "Keyword argument {} doesn't exist in self.fields".format(
+                        k)
+                )
         self._rows.append(kwargs)
 
-    def write_to(self, fileobject):
+    def write_csv_to(self, fileobject):
+        """Write csv to file-like object."""
         writer = csv.writer(fileobject)
         # write header
         writer.writerow([HEADER_MAP[field] for field in self.fields])

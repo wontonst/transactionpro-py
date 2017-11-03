@@ -23,8 +23,8 @@ Simply run
 # Usage
 
 ```python
-from transactionpro import InvoiceImportType
-invoice = InvoiceImportType()
+from transactionpro.import_types import Invoice
+invoice = Invoice()
 invoice.add_row(
     customer='Some Company',
     ref_number='123',
@@ -38,7 +38,7 @@ You can also pass a file-like object to save, eg
 
 ```python
 output = io.StringIO()
-invoice.write_to(output)
+invoice.write_csv_to(output)
 ```
 
 To get a tuple of the field names, you can use

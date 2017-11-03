@@ -1,7 +1,7 @@
 from transactionpro.import_type import ImportType
 
 
-class InvoiceImportType(ImportType):
+class Invoice(ImportType):
     @property
     def fields(self):
         return (
