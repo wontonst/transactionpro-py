@@ -15,7 +15,7 @@ perhaps find time to implement it for you.
 
 # Installation
 
-TransactionPro is python2 and python3 compatible.
+TransactionPro is python2.7 and python3 compatible.
 Simply run
 
 `pip install transactionpro`
