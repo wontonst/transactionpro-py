@@ -14,8 +14,7 @@ class Invoice(ImportType):
             'unit_of_measure', 'rep', 'ship_to_state', 'inventory_site', 'transaction_date', 'fob', 'bill_to_line_4',
             'email', 'terms', 'description', 'ship_to_line_4', 'price', 'to_be_emailed', 'item_line_class',
             'sales_tax_code', 'customer_message', 'class', 'to_be_printed', 'inventory_bin', 'ref_number',
-            'ship_to_city',
-            'bill_to_country', 'quantity')
+            'ship_to_city', 'po_number', 'bill_to_country', 'quantity')
 
     @property
     def required_fields(self):
